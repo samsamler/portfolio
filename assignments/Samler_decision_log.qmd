@@ -1,0 +1,14 @@
+---
+title: "Samler_decision_log"
+editor: visual
+---
+
+# Decision Log - Sam Samler
+
+## Decision 1: Using Alaska Albers for Spatial Joins 
+
+I used the Alaska Albers dataset for spatial joins becasue it is better suited for spatial analysis. The CRS is best at editing the distortion of Alaska for spatial analysis. Alaska Albers has more accurate spatial relationships than lat/long coordinates, that allow for better analysis for Alaska.
+
+## Decision 2: Use 'st_within' instead of 'st_intersects()'
+
+Using st_within for assigning points to polygons allows R studio to only count a data point if it falls within the polygon boundary. st_intersects() would include data points that touch and or overlap, and would not be useful in this context. This would cause one point to be matched to multiple polygons that would lead to duplicated rows or incorrect datasets. sf_within is set up to avoid this.
