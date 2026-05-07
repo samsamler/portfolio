@@ -1,0 +1,60 @@
+---
+title: "W6D1_Fish"
+format: html
+---
+
+Add libraries needed to explore the data
+
+```{r}
+install.packages('dplyr')
+install.packages('tidyverse')
+library(dplyr)
+library(tidyr)
+library(readr)
+```
+
+## Data Sources
+
+Read the data from KNB Package Alaska commercial catches by management region (1886-1997)
+
+```{r}
+catch_original <- read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.302.1")
+```
+
+## Explore Data
+
+```{r}
+##Prints the column names of the data frame
+colnames(catch_original)
+##First 6 lines of data frame
+head(catch_original)
+##Summary of each column of data
+summary(catch_original)
+## Prints unique values in a column (in this case region)
+unique(catch_original$Region)
+## Opens data frame in its own tab to see each row and column of the data (to be done in console)
+```
+
+# Using select() function
+
+```{r}
+catch_data <- catch_original %>% 
+  select(Region, Year, Chinook, Sockeye, Coho, Pink, Chum)
+
+head(catch_data)
+
+catch_data_2 <- catch_original %>% 
+  select(All, -notesRegCode)
+```
+
+# Check column types
+
+```{r}
+
+```
+
+# Replace values in a column with mutate() function
+
+```{r}
+
+```
