@@ -22,4 +22,5 @@ Hello World. This is my Portfolio for learning R in CHEM806. Enjoy!
 ## a08- Intro to Spatial Data 
 
 [Spacial Data Introduction](assignments/intro_to_spatial_data.html)
+
 [Decision Log a08](assignments/Samler_decision_log.html)
