@@ -1,6 +1,14 @@
 project:
-  type: default
+  type: website
   output-dir: .
+  render:
+    - index.qmd
+    - assignments/a01_quarto_literate_analysis.qmd
+    - assignments/intro_to_spatial_data.qmd
+    - assignments/Samler_decision_log.qmd
+
+website:
+  title: "Sam Samler Portfolio"
 
 format:
   html:

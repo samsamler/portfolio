@@ -1,6 +1,25 @@
 ---
-title: "index"
+title: "Portfolio CHEM806 - Sam Samler"
 editor: visual
 ---
 
-Hello World.This is my Portfoilio for learning R! 
+Hello World. This is my Portfolio for learning R in CHEM806. Enjoy!
+- Sam Samler 
+
+# Course Lessons
+
+- Introduction to Literate Analysis Using Quarto
+- Tidy Data
+- Cleaning and Wrangling Data
+- Data Visualization 
+
+# Course Projects 
+
+## a01- Quarto Literate Analysis 
+
+[Quarto Literate Analysis](assignments/a01_quarto_literate_analysis.html)
+
+## a08- Intro to Spatial Data 
+
+[Spacial Data Introduction](assignments/intro_to_spatial_data.html)
+[Decision Log a08](assignments/Samler_decision_log.html)
