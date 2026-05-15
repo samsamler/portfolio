@@ -1,12 +1,6 @@
 ---
-title: "Portfolio"
-listing:
-  contents: assignments
-  sort: "date asc"
-  fields: [title, date]
+title: "index"
+editor: visual
 ---
 
-Welcome!  
-This is my portfolio for learning **R, data analysis, GitHub, and Quarto**.
-
-## Assignments
+Hello World.This is my Portfoilio for learning R! 
