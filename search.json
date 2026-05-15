@@ -1,0 +1,198 @@
+[
+  {
+    "objectID": "assignments/Samler_decision_log.html",
+    "href": "assignments/Samler_decision_log.html",
+    "title": "Samler_decision_log",
+    "section": "",
+    "text": "I used the Alaska Albers dataset for spatial joins becasue it is better suited for spatial analysis. The CRS is best at editing the distortion of Alaska for spatial analysis. Alaska Albers has more accurate spatial relationships than lat/long coordinates, that allow for better analysis for Alaska.\n\n\n\nUsing st_within for assigning points to polygons allows R studio to only count a data point if it falls within the polygon boundary. st_intersects() would include data points that touch and or overlap, and would not be useful in this context. This would cause one point to be matched to multiple polygons that would lead to duplicated rows or incorrect datasets. sf_within is set up to avoid this."
+  },
+  {
+    "objectID": "assignments/Samler_decision_log.html#decision-1-using-alaska-albers-for-spatial-joins",
+    "href": "assignments/Samler_decision_log.html#decision-1-using-alaska-albers-for-spatial-joins",
+    "title": "Samler_decision_log",
+    "section": "",
+    "text": "I used the Alaska Albers dataset for spatial joins becasue it is better suited for spatial analysis. The CRS is best at editing the distortion of Alaska for spatial analysis. Alaska Albers has more accurate spatial relationships than lat/long coordinates, that allow for better analysis for Alaska."
+  },
+  {
+    "objectID": "assignments/Samler_decision_log.html#decision-2-use-st_within-instead-of-st_intersects",
+    "href": "assignments/Samler_decision_log.html#decision-2-use-st_within-instead-of-st_intersects",
+    "title": "Samler_decision_log",
+    "section": "",
+    "text": "Using st_within for assigning points to polygons allows R studio to only count a data point if it falls within the polygon boundary. st_intersects() would include data points that touch and or overlap, and would not be useful in this context. This would cause one point to be matched to multiple polygons that would lead to duplicated rows or incorrect datasets. sf_within is set up to avoid this."
+  },
+  {
+    "objectID": "assignments/a01_quarto_literate_analysis.html",
+    "href": "assignments/a01_quarto_literate_analysis.html",
+    "title": "Literate Analysis with Ocean Water Samples",
+    "section": "",
+    "text": "This Quarto document follows the Section 5.7 practice exercise from coreR Session 05 (Literate Analysis with Quarto): building a simple prose + code analysis using real seawater chemistry data (BGchem2008data.csv).\nSource: https://learning.nceas.ucsb.edu/2024-10-coreR/session_05.html\n\n\nThe seawater chemistry dataset used here is BGchem2008data.csv (downloaded previously in the course).\n\nDate downloaded: August 8, 2025\nDownload source: https://arcticdata.io/metacat/d1/mn/v2/object/urn%3Auuid%3A35ad7624-b159-4e29-a700-0c0770419941\n\nYou will explore the nitrogen to phosphate ratio, which indicates the health of the ocean ecosystem. https://beal-agulhas.earth.miami.edu/teaching/courses/lecture-five/index.html\n\n\n\nBest practice: put all library() calls in one chunk near the top so collaborators can see what packages are required.\n\nlibrary(here)\nlibrary(readr)"
+  },
+  {
+    "objectID": "assignments/a01_quarto_literate_analysis.html#about-the-data",
+    "href": "assignments/a01_quarto_literate_analysis.html#about-the-data",
+    "title": "Literate Analysis with Ocean Water Samples",
+    "section": "",
+    "text": "The seawater chemistry dataset used here is BGchem2008data.csv (downloaded previously in the course).\n\nDate downloaded: August 8, 2025\nDownload source: https://arcticdata.io/metacat/d1/mn/v2/object/urn%3Auuid%3A35ad7624-b159-4e29-a700-0c0770419941\n\nYou will explore the nitrogen to phosphate ratio, which indicates the health of the ocean ecosystem. https://beal-agulhas.earth.miami.edu/teaching/courses/lecture-five/index.html"
+  },
+  {
+    "objectID": "assignments/a01_quarto_literate_analysis.html#setup",
+    "href": "assignments/a01_quarto_literate_analysis.html#setup",
+    "title": "Literate Analysis with Ocean Water Samples",
+    "section": "",
+    "text": "Best practice: put all library() calls in one chunk near the top so collaborators can see what packages are required.\n\nlibrary(here)\nlibrary(readr)"
+  },
+  {
+    "objectID": "assignments/a01_quarto_literate_analysis.html#calculate-summary-statistics",
+    "href": "assignments/a01_quarto_literate_analysis.html#calculate-summary-statistics",
+    "title": "Literate Analysis with Ocean Water Samples",
+    "section": "Calculate summary statistics",
+    "text": "Calculate summary statistics\nCompute mean nutrient values (using na.rm = TRUE so missing values don’t break the calculation).\n\nnitrate &lt;- mean(bg_chem$NO3, na.rm = TRUE)\nnitrite &lt;- mean(bg_chem$NO2, na.rm = TRUE)\namm     &lt;- mean(bg_chem$NH4, na.rm = TRUE)\nphos    &lt;- mean(bg_chem$P,   na.rm = TRUE)"
+  },
+  {
+    "objectID": "assignments/a01_quarto_literate_analysis.html#calculate-mean-redfield-ratio",
+    "href": "assignments/a01_quarto_literate_analysis.html#calculate-mean-redfield-ratio",
+    "title": "Literate Analysis with Ocean Water Samples",
+    "section": "Calculate mean Redfield ratio",
+    "text": "Calculate mean Redfield ratio\n\nratio &lt;- (nitrate + nitrite + amm) / phos\nratio\n\n[1] 6.216519\n\n\nYou can report results inline in Quarto like this:\nThe Redfield ratio for this dataset is approximately: 6"
+  },
+  {
+    "objectID": "assignments/a01_quarto_literate_analysis.html#plot-redfield-ratio-measurements",
+    "href": "assignments/a01_quarto_literate_analysis.html#plot-redfield-ratio-measurements",
+    "title": "Literate Analysis with Ocean Water Samples",
+    "section": "Plot Redfield ratio measurements",
+    "text": "Plot Redfield ratio measurements\nFinally, create a simple base R plot that shows the relationship between phosphate and the total nitrogen components.\n\nplot(\n  bg_chem$P,\n  bg_chem$NO2 + bg_chem$NO3 + bg_chem$NH4,\n  xlab = \"Phosphate (P)\",\n  ylab = \"Total nitrogen (NO2 + NO3 + NH4)\",\n  main = \"Ocean water samples: total N vs P\"\n)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Portfolio CHEM806 - Sam Samler",
+    "section": "",
+    "text": "Hello World. This is my Portfolio for learning R in CHEM806. Enjoy! - Sam Samler"
+  },
+  {
+    "objectID": "index.html#a01--quarto-literate-analysis",
+    "href": "index.html#a01--quarto-literate-analysis",
+    "title": "Portfolio CHEM806 - Sam Samler",
+    "section": "a01- Quarto Literate Analysis",
+    "text": "a01- Quarto Literate Analysis\nQuarto Literate Analysis"
+  },
+  {
+    "objectID": "index.html#a08--intro-to-spatial-data",
+    "href": "index.html#a08--intro-to-spatial-data",
+    "title": "Portfolio CHEM806 - Sam Samler",
+    "section": "a08- Intro to Spatial Data",
+    "text": "a08- Intro to Spatial Data\nSpacial Data Introduction Decision Log a08"
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html",
+    "href": "assignments/intro_to_spatial_data.html",
+    "title": "Working with Spatial Data in R",
+    "section": "",
+    "text": "#Loading Libraries\nlibrary(readr)\nlibrary(here)\nlibrary(sf)\nlibrary(ggplot2)\nlibrary(leaflet)\nlibrary(scales)\nlibrary(ggspatial)\nlibrary(dplyr)"
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html#plotting-shapes",
+    "href": "assignments/intro_to_spatial_data.html#plotting-shapes",
+    "title": "Working with Spatial Data in R",
+    "section": "Plotting shapes",
+    "text": "Plotting shapes\n\n# quick plot\nplot(ak_rgns_sf)"
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html#by-class",
+    "href": "assignments/intro_to_spatial_data.html#by-class",
+    "title": "Working with Spatial Data in R",
+    "section": "By Class",
+    "text": "By Class\n\nclass(ak_rgns_sf)\n\n[1] \"sf\"         \"tbl_df\"     \"tbl\"        \"data.frame\""
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html#head-function",
+    "href": "assignments/intro_to_spatial_data.html#head-function",
+    "title": "Working with Spatial Data in R",
+    "section": "Head Function",
+    "text": "Head Function\n\nhead(ak_rgns_sf)\n\nSimple feature collection with 6 features and 3 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -179.2296 ymin: 51.15702 xmax: 179.8567 ymax: 71.43957\nGeodetic CRS:  WGS 84\n# A tibble: 6 × 4\n  region_id region           mgmt_area                                  geometry\n      &lt;int&gt; &lt;chr&gt;                &lt;dbl&gt;                        &lt;MULTIPOLYGON [°]&gt;\n1         1 Aleutian Islands         3 (((-171.1345 52.44974, -171.1686 52.4174…\n2         2 Arctic                   4 (((-139.9552 68.70597, -139.9893 68.7051…\n3         3 Bristol Bay              3 (((-159.8745 58.62778, -159.8654 58.6137…\n4         4 Chignik                  3 (((-155.8282 55.84638, -155.8049 55.8655…\n5         5 Copper River             2 (((-143.8874 59.93931, -143.9165 59.9403…\n6         6 Kodiak                   3 (((-151.9997 58.83077, -152.0358 58.8271…\n\n\n\nglimpse(ak_rgns_sf)\n\nRows: 13\nColumns: 4\n$ region_id &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13\n$ region    &lt;chr&gt; \"Aleutian Islands\", \"Arctic\", \"Bristol Bay\", \"Chignik\", \"Cop…\n$ mgmt_area &lt;dbl&gt; 3, 4, 3, 3, 2, 3, 4, 4, 2, 4, 2, 1, 4\n$ geometry  &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-171.1345 5..., MULTIPOLYGON (((-139.9552 6.…"
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html#transforming-coordinates",
+    "href": "assignments/intro_to_spatial_data.html#transforming-coordinates",
+    "title": "Working with Spatial Data in R",
+    "section": "Transforming Coordinates",
+    "text": "Transforming Coordinates\n\nak_rgns_3338_sf &lt;- ak_rgns_sf %&gt;%\n    st_transform(crs = 3338)\n\nst_crs(ak_rgns_3338_sf)\n\nCoordinate Reference System:\n  User input: EPSG:3338 \n  wkt:\nPROJCRS[\"NAD83 / Alaska Albers\",\n    BASEGEOGCRS[\"NAD83\",\n        DATUM[\"North American Datum 1983\",\n            ELLIPSOID[\"GRS 1980\",6378137,298.257222101,\n                LENGTHUNIT[\"metre\",1]]],\n        PRIMEM[\"Greenwich\",0,\n            ANGLEUNIT[\"degree\",0.0174532925199433]],\n        ID[\"EPSG\",4269]],\n    CONVERSION[\"Alaska Albers (meter)\",\n        METHOD[\"Albers Equal Area\",\n            ID[\"EPSG\",9822]],\n        PARAMETER[\"Latitude of false origin\",50,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8821]],\n        PARAMETER[\"Longitude of false origin\",-154,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8822]],\n        PARAMETER[\"Latitude of 1st standard parallel\",55,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8823]],\n        PARAMETER[\"Latitude of 2nd standard parallel\",65,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8824]],\n        PARAMETER[\"Easting at false origin\",0,\n            LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8826]],\n        PARAMETER[\"Northing at false origin\",0,\n            LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8827]]],\n    CS[Cartesian,2],\n        AXIS[\"easting (X)\",east,\n            ORDER[1],\n            LENGTHUNIT[\"metre\",1]],\n        AXIS[\"northing (Y)\",north,\n            ORDER[2],\n            LENGTHUNIT[\"metre\",1]],\n    USAGE[\n        SCOPE[\"Topographic mapping (small scale).\"],\n        AREA[\"United States (USA) - Alaska.\"],\n        BBOX[51.3,172.42,71.4,-129.99]],\n    ID[\"EPSG\",3338]]"
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html#turing-population-into-a-spatial-object",
+    "href": "assignments/intro_to_spatial_data.html#turing-population-into-a-spatial-object",
+    "title": "Working with Spatial Data in R",
+    "section": "Turing Population into a Spatial Object",
+    "text": "Turing Population into a Spatial Object\n\npop_4326_sf &lt;- st_as_sf(pop_df,\n                        coords = c('lng', 'lat'),\n                        crs = 4326,\n                        remove = F)\n\nhead(pop_4326_sf)\n\nSimple feature collection with 6 features and 5 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -176.6581 ymin: 51.88 xmax: -154.1703 ymax: 62.68889\nGeodetic CRS:  WGS 84\n# A tibble: 6 × 6\n   year city       lat   lng population             geometry\n  &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;          &lt;POINT [°]&gt;\n1  2015 Adak      51.9 -177.        122    (-176.6581 51.88)\n2  2015 Akhiok    56.9 -154.         84 (-154.1703 56.94556)\n3  2015 Akiachak  60.9 -161.        562 (-161.4314 60.90944)\n4  2015 Akiak     60.9 -161.        399 (-161.2139 60.91222)\n5  2015 Akutan    54.1 -166.        899 (-165.7731 54.13556)\n6  2015 Alakanuk  62.7 -165.        777 (-164.6153 62.68889)"
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html#calculating-population-by-region",
+    "href": "assignments/intro_to_spatial_data.html#calculating-population-by-region",
+    "title": "Working with Spatial Data in R",
+    "section": "Calculating Population by Region",
+    "text": "Calculating Population by Region\n\npop_rgn_df &lt;- pop_joined_sf %&gt;%\n    st_drop_geometry() %&gt;%\n    group_by(region) %&gt;%\n    summarize(total_pop = sum(population))\n\nhead(pop_rgn_df)\n\n# A tibble: 6 × 2\n  region           total_pop\n  &lt;chr&gt;                &lt;dbl&gt;\n1 Aleutian Islands      8840\n2 Arctic                8419\n3 Bristol Bay           6947\n4 Chignik                311\n5 Cook Inlet          408254\n6 Copper River          2294"
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html#returning-population-back-to-region-shapfile",
+    "href": "assignments/intro_to_spatial_data.html#returning-population-back-to-region-shapfile",
+    "title": "Working with Spatial Data in R",
+    "section": "Returning Population Back to Region Shapfile",
+    "text": "Returning Population Back to Region Shapfile\n\npop_rgn_3338_sf &lt;- left_join(ak_rgns_3338_sf, \n                             pop_rgn_df, \n                             by = \"region\")\n\n# plot to check\nplot(pop_rgn_3338_sf[\"total_pop\"])"
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html#population-by-management-area",
+    "href": "assignments/intro_to_spatial_data.html#population-by-management-area",
+    "title": "Working with Spatial Data in R",
+    "section": "Population by Management Area",
+    "text": "Population by Management Area\n\npop_mgmt_3338_sf &lt;- pop_rgn_3338_sf %&gt;%\n    group_by(mgmt_area) %&gt;%\n    summarize(total_pop = sum(total_pop))\n\nplot(pop_mgmt_3338_sf[\"total_pop\"])"
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html#separating-by-geometries",
+    "href": "assignments/intro_to_spatial_data.html#separating-by-geometries",
+    "title": "Working with Spatial Data in R",
+    "section": "Separating by Geometries",
+    "text": "Separating by Geometries\n\npop_mgmt_3338_sf &lt;- pop_rgn_3338_sf %&gt;%\n    group_by(mgmt_area) %&gt;%\n    summarize(total_pop = sum(total_pop), do_union = F)\n\nplot(pop_mgmt_3338_sf[\"total_pop\"])"
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html#saving-the-plot",
+    "href": "assignments/intro_to_spatial_data.html#saving-the-plot",
+    "title": "Working with Spatial Data in R",
+    "section": "Saving the Plot",
+    "text": "Saving the Plot\n\nwrite_sf(pop_rgn_3338_sf, here(\"data/ak_regions_population.shp\"))"
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html#ggplot-shapefiles",
+    "href": "assignments/intro_to_spatial_data.html#ggplot-shapefiles",
+    "title": "Working with Spatial Data in R",
+    "section": "ggplot + Shapefiles",
+    "text": "ggplot + Shapefiles\n\nrivers_3338_sf &lt;- read_sf(here(\"data/ak_rivers_simp.shp\"))\n\n\nst_crs(rivers_3338_sf)\n\nCoordinate Reference System:\n  User input: Albers \n  wkt:\nPROJCRS[\"Albers\",\n    BASEGEOGCRS[\"GCS_GRS 1980(IUGG, 1980)\",\n        DATUM[\"unknown\",\n            ELLIPSOID[\"GRS80\",6378137,298.257222101,\n                LENGTHUNIT[\"metre\",1,\n                    ID[\"EPSG\",9001]]]],\n        PRIMEM[\"Greenwich\",0,\n            ANGLEUNIT[\"Degree\",0.0174532925199433]]],\n    CONVERSION[\"unnamed\",\n        METHOD[\"Albers Equal Area\",\n            ID[\"EPSG\",9822]],\n        PARAMETER[\"Latitude of false origin\",50,\n            ANGLEUNIT[\"Degree\",0.0174532925199433],\n            ID[\"EPSG\",8821]],\n        PARAMETER[\"Longitude of false origin\",-154,\n            ANGLEUNIT[\"Degree\",0.0174532925199433],\n            ID[\"EPSG\",8822]],\n        PARAMETER[\"Latitude of 1st standard parallel\",55,\n            ANGLEUNIT[\"Degree\",0.0174532925199433],\n            ID[\"EPSG\",8823]],\n        PARAMETER[\"Latitude of 2nd standard parallel\",65,\n            ANGLEUNIT[\"Degree\",0.0174532925199433],\n            ID[\"EPSG\",8824]],\n        PARAMETER[\"Easting at false origin\",0,\n            LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8826]],\n        PARAMETER[\"Northing at false origin\",0,\n            LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8827]]],\n    CS[Cartesian,2],\n        AXIS[\"(E)\",east,\n            ORDER[1],\n            LENGTHUNIT[\"metre\",1,\n                ID[\"EPSG\",9001]]],\n        AXIS[\"(N)\",north,\n            ORDER[2],\n            LENGTHUNIT[\"metre\",1,\n                ID[\"EPSG\",9001]]]]\n\n\n\nggplot() +\n    geom_sf(data = pop_rgn_3338_sf, \n            aes(fill = total_pop)) +\n    geom_sf(data = pop_3338_sf, \n            size = 0.5) +\n    geom_sf(data = rivers_3338_sf,\n            aes(linewidth = StrOrder)) +\n    scale_linewidth(range = c(0.05, 0.5),\n                    guide = \"none\") +\n    labs(title = \"Total Population by Alaska Region\",\n         fill = \"Total Population\") +\n    scale_fill_continuous(low = \"khaki\",\n                          high =  \"firebrick\",\n                          labels = comma) +\n    theme_bw()"
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html#ggspatial",
+    "href": "assignments/intro_to_spatial_data.html#ggspatial",
+    "title": "Working with Spatial Data in R",
+    "section": "ggspatial",
+    "text": "ggspatial\n\npop_3857_sf &lt;- st_transform(pop_3338_sf, \n                         crs = 3857)\n\n\nggplot(data = pop_3857_sf) +\n    ggspatial::annotation_map_tile(type = \"osm\", zoom = 4, progress = 'none') + \n    # higher zoom values are more detailed \n    geom_sf(aes(color = population),\n            fill = NA) +\n    scale_color_continuous(low = \"darkkhaki\",\n                           high =  \"firebrick\",\n                           labels = comma)"
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html#transform-to-unprojected-coordinate-system",
+    "href": "assignments/intro_to_spatial_data.html#transform-to-unprojected-coordinate-system",
+    "title": "Working with Spatial Data in R",
+    "section": "Transform to unprojected coordinate system",
+    "text": "Transform to unprojected coordinate system\n\npop_rgn_4326_sf &lt;- pop_rgn_3338_sf %&gt;% \n    st_transform(crs = 4326)\n\n\nm &lt;- leaflet(options = leafletOptions(crs = epsg3338)) %&gt;%\n    addPolygons(data = pop_rgn_4326_sf,\n                fillColor = \"gray\",\n                weight = 1)\n\nm"
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html#adding-labels-and-color-legends",
+    "href": "assignments/intro_to_spatial_data.html#adding-labels-and-color-legends",
+    "title": "Working with Spatial Data in R",
+    "section": "Adding Labels and Color Legends",
+    "text": "Adding Labels and Color Legends\n\npal &lt;- colorNumeric(palette = \"Reds\", domain = pop_rgn_4326_sf$total_pop)\n\nm &lt;- leaflet(options = leafletOptions(crs = epsg3338)) %&gt;%\n    addPolygons(\n        data = pop_rgn_4326_sf,\n        fillColor = ~ pal(total_pop),\n        weight = 1,\n        color = \"black\",\n        fillOpacity = 1,\n        label = ~ region\n    ) %&gt;%\n    addLegend(\n        position = \"bottomleft\",\n        pal = pal,\n        values = range(pop_rgn_4326_sf$total_pop),\n        title = \"Total Population\"\n    )\n\nm"
+  },
+  {
+    "objectID": "assignments/intro_to_spatial_data.html#adding-communities-and-popup-labels",
+    "href": "assignments/intro_to_spatial_data.html#adding-communities-and-popup-labels",
+    "title": "Working with Spatial Data in R",
+    "section": "Adding Communities and Popup Labels",
+    "text": "Adding Communities and Popup Labels\n\npal &lt;- colorNumeric(palette = \"Reds\", domain = pop_rgn_4326_sf$total_pop)\n\nm &lt;- leaflet(options = leafletOptions(crs = epsg3338)) %&gt;%\n    addPolygons(\n        data = pop_rgn_4326_sf,\n        fillColor = ~ pal(total_pop),\n        weight = 1,\n        color = \"black\",\n        fillOpacity = 1\n    ) %&gt;%\n    addCircleMarkers(\n        data = pop_4326_sf,\n        lat = ~ lat,\n        lng = ~ lng,\n        radius = ~ log(population / 500),\n        # arbitrary scaling\n        fillColor = \"gray\",\n        fillOpacity = 1,\n        weight = 0.25,\n        color = \"black\",\n        label = ~ paste0(pop_4326_sf$city, \", population \", comma(pop_4326_sf$population))\n    ) %&gt;%\n    addLegend(\n        position = \"bottomleft\",\n        pal = pal,\n        values = range(pop_rgn_4326_sf$total_pop),\n        title = \"Total Population\"\n    )\n\nm"
+  }
+]

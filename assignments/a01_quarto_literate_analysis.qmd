@@ -40,7 +40,7 @@ Quarto runs R in the same way as a script: objects only exist after the chunks t
 Using `here()` is a convenient way to build paths relative to your project root (e.g., your `.qmd` might live in `scripts/` while data lives in `data/`).
 
 ```{r}
-bg_chem <- read_csv(here::here("data", "BGchem2008data.csv"))
+bg_chem <- read_csv(here::here("data","raw", "BGchem2008data.csv"))
 ```
 
 (Optional) Quick peek at the data:
